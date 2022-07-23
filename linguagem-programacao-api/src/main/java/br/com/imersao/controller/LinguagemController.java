@@ -3,10 +3,7 @@ package br.com.imersao.controller;
 import br.com.imersao.model.Linguagem;
 import br.com.imersao.repository.LinguagemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +23,11 @@ public class LinguagemController {
     public Linguagem cadastrarLinguagem(@RequestBody Linguagem linguagem) {
         Linguagem linguagemSalva = linguagemRepository.save(linguagem);
         return linguagemSalva;
+    }
+
+    @DeleteMapping
+    public void deletarLinguagem(Linguagem linguagem){
+        linguagemRepository.delete(linguagem);
     }
 
 }
